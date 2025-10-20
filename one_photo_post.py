@@ -17,7 +17,6 @@ def one_photo_post():
     )
     args = parser.parse_args()
     url = args.u
-    print(url)
     bot.send_photo(chat_id="-1002904882671", photo=url)
 
 
