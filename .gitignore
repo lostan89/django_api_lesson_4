@@ -1,0 +1,10 @@
+.env
+/__pycache__
+.replit
+.DS_Store
+/.ruff_cache
+/venv
+/images
+*.pyc
+*.pyd
+*.pyo
