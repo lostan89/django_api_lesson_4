@@ -45,8 +45,9 @@ pip install -r requirements.txt
 
 api_key = env.str("NASA_API_KEY") - для защиты вы можете указать токен в файле .env
 ```
-Вы можете изменить кол-во скачиваемых фото, поменяв второй аргумент в функции get_nasa_image:
-nasa_image = get_nasa_image(api_key, 30)
+Вы можете изменить кол-во скачиваемых фото, поменяв второй аргумент в функции **get_nasa_image**:
+
+`nasa_image = get_nasa_image(api_key, 30)`
 
 
 ### Пример запуска программы:
