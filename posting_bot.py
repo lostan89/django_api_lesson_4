@@ -12,7 +12,7 @@ def posting_bot():
     env.read_env()
     bot = telegram.Bot(token=env.str("TG_TOKEN"))
     parser = argparse.ArgumentParser(
-        description="Укажите в часах с каким интервалом делать посты, по умолчанию - 30 секунд"
+        description="Укажите в часах с каким интервалом делать посты, по умолчанию - 4 часа"
     )
     parser.add_argument(
         "--t", default=4, help="длительность интервала постинга (в часах)"
