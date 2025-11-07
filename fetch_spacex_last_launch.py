@@ -19,9 +19,10 @@ def main():
     )
     parser.add_argument("--id", help="Введите ID запуска, фото с которого Вы хотите сохранить", default="latest")
     args = parser.parse_args()
+    image_urls = fetch_spacex_last_launch(args.id)
     try:
-        if fetch_spacex_last_launch(args.id):
-            for image_number, image_url in enumerate(fetch_spacex_last_launch(args.id)):
+        if image_urls:
+            for image_number, image_url in enumerate(image_urls):
                 save_image_to_path(f"spacex_{str(image_number)}", image_url, "images/")
         else:
             print("Фотографии с последнего запуска отсутствуют")
