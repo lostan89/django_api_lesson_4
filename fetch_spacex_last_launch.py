@@ -6,7 +6,7 @@ from additional import save_image_to_path
 
 def fetch_spacex_last_launch(launch_id):
     if launch_id:
-        api_url = "https://api.spacexdata.com/v5/launches/" + launch_id
+        api_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     else:
         api_url = "https://api.spacexdata.com/v5/launches/latest"
     try:
@@ -29,7 +29,7 @@ def main():
     print(fetch_spacex_last_launch(args.id))
     if fetch_spacex_last_launch(args.id):
         for image_number, image_url in enumerate(fetch_spacex_last_launch(args.id)):
-            save_image_to_path("spacex_" + str(image_number), image_url, "images/")
+            save_image_to_path(f"spacex_{str(image_number)}", image_url, "images/")
     else:
         print("Фотографии с последнего запуска отсутствуют")
 
