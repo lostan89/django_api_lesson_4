@@ -5,11 +5,11 @@ from urllib.parse import urlparse
 
 def save_image_to_path(image_name, url, path):
     os.makedirs(path, exist_ok=True)
-    filename = image_name + get_ext(url)
+    filename = f"{image_name}{get_ext(url)}"
     response = requests.get(url)
     response.raise_for_status()
 
-    with open(path + filename, "wb") as file:
+    with open(f"{path}{filename}", "wb") as file:
         file.write(response.content)
 
 
