@@ -22,9 +22,9 @@ def fetch_spacex_last_launch(launch_id):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Введите ID запуска или пропустите, для показа фото с последнего запуска"
+        description="Программа сохраняет фото с запуска SpaceX, по умолчанию с последнего"
     )
-    parser.add_argument("--id", help="ID запуска")
+    parser.add_argument("--id", help="Введите ID запуска, фото с которого Вы хотите сохранить")
     args = parser.parse_args()
     print(fetch_spacex_last_launch(args.id))
     if fetch_spacex_last_launch(args.id):
