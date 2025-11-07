@@ -9,12 +9,12 @@ def get_nasa_image(api_key, count):
     response = requests.get(api_url, params=payload)
     response.raise_for_status()
     nasa_photo = response.json()
-    url_image = []
+    image_url = []
     for image in nasa_photo:
         url = image.get("url")
         if url:
-            url_image.append(url)
-    return url_image
+            image_url.append(url)
+    return image_url
 
 
 def main():
