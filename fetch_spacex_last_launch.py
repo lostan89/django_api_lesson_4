@@ -5,10 +5,7 @@ from additional import save_image_to_path
 
 
 def fetch_spacex_last_launch(launch_id):
-    if launch_id:
         api_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
-    else:
-        api_url = "https://api.spacexdata.com/v5/launches/latest"
     try:
         response = requests.get(api_url)
         response.raise_for_status()
@@ -24,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="Программа сохраняет фото с запуска SpaceX, по умолчанию с последнего"
     )
-    parser.add_argument("--id", help="Введите ID запуска, фото с которого Вы хотите сохранить")
+    parser.add_argument("--id", help="Введите ID запуска, фото с которого Вы хотите сохранить", default="latest")
     args = parser.parse_args()
     if fetch_spacex_last_launch(args.id):
         for image_number, image_url in enumerate(fetch_spacex_last_launch(args.id)):
