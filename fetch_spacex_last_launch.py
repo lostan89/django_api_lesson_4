@@ -9,8 +9,8 @@ def fetch_spacex_last_launch(launch_id):
         response = requests.get(api_url)
         response.raise_for_status()
         spacex_photo = response.json()
-        url_image = spacex_photo["links"]["flickr"]["original"]
-        return url_image
+        image_url = spacex_photo["links"]["flickr"]["original"]
+        return image_url
 
 
 def main():
