@@ -4,11 +4,7 @@ from urllib.parse import urlparse
 
 
 def save_image_to_path(image_name, url, path):
-    try:
-        os.makedirs(path)
-    except FileExistsError:
-        pass
-
+    os.makedirs(path, exist_ok=True)
     filename = image_name + get_ext(url)
     response = requests.get(url)
     response.raise_for_status()
