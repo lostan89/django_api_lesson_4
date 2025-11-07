@@ -23,7 +23,7 @@ def main():
     api_key = env.str("NASA_API_KEY")
     nasa_image = get_nasa_image(api_key, 30)
     for image_number, image_url in enumerate(nasa_image):
-        save_image_to_path("nasa_apod_" + str(image_number), image_url, "images/")
+        save_image_to_path(f"nasa_apod_{str(image_number)}", image_url, "images/")
 
 
 if __name__ == "__main__":
