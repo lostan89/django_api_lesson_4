@@ -24,7 +24,7 @@ def posting_bot():
     while files:
         random.shuffle(files)
         for file in files:
-            bot.send_photo(chat_id="-1002904882671", photo=open("images/" + file, "rb"))
+            bot.send_photo(chat_id=env.str("TG_CHAT_ID"), photo=open("images/" + file, "rb"))
             time.sleep(t)
 
 
