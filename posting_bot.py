@@ -12,7 +12,7 @@ def post_image_tg_bot():
     env.read_env()
     bot = telegram.Bot(token=env.str("TG_TOKEN"))
     parser = argparse.ArgumentParser(
-        description="Укажите в часах с каким интервалом делать посты, по умолчанию - 4 часа"
+        description="Скрипт загружает изобращение в телеграм-канал с заданной периодичностью"
     )
     parser.add_argument(
         "--t", default=4, help="длительность интервала постинга (в часах)"
