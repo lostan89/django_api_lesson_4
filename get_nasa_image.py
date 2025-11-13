@@ -21,8 +21,8 @@ def main():
     env = Env()
     env.read_env()
     api_key = env.str("NASA_API_KEY")
-    count_of_images = 30
-    nasa_images = get_nasa_images(api_key, count_of_images)
+    image_count = 30
+    nasa_images = get_nasa_images(api_key, image_count)
     for image_number, image_url in enumerate(nasa_image):
         save_image_to_path(f"nasa_apod_{str(image_number)}", image_url, "images/")
 
