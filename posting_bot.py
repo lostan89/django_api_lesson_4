@@ -15,18 +15,18 @@ def post_image_tg_bot():
         description="Скрипт загружает изобращение в телеграм-канал с заданной периодичностью"
     )
     parser.add_argument(
-        "--t", default=4, help="длительность интервала постинга (в часах)"
+        "--t", default=4, help="длительность интервала постинга в часах (по умолчанию - 4)"
     )
     args = parser.parse_args()
 
-    t = int(args.t)*3600
+    posting_interval_hours = int(args.t)*3600
     filenames = os.listdir("images/")
     while filenames:
         random.shuffle(filenames)
         for file in filenames:
             with open(f"images/{file}", "rb") as photo:
                 bot.send_photo(chat_id=env.str("TG_CHAT_ID"), photo=photo)
-            time.sleep(t)
+            time.sleep(posting_interval_hours)
 
 
 def main():
