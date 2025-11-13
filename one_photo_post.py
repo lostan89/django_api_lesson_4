@@ -17,7 +17,7 @@ def one_photo_post():
     )
     args = parser.parse_args()
     url = args.u
-    bot.send_photo(chat_id="-1002904882671", photo=url)
+    bot.send_photo(chat_id=env.str("TG_CHAT_ID"), photo=url)
 
 
 def main():
