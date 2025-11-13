@@ -20,10 +20,10 @@ def post_image_tg_bot():
     args = parser.parse_args()
 
     t = int(args.t)*3600
-    files = os.listdir("images/")
-    while files:
-        random.shuffle(files)
-        for file in files:
+    filenames = os.listdir("images/")
+    while filenames:
+        random.shuffle(filenames)
+        for file in filenames:
             with open(f"images/{file}", "rb") as photo:
                 bot.send_photo(chat_id=env.str("TG_CHAT_ID"), photo=photo)
             time.sleep(t)
