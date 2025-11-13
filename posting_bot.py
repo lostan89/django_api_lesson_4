@@ -7,7 +7,7 @@ import argparse
 from environs import Env
 
 
-def posting_bot():
+def post_image_tg_bot():
     env = Env()
     env.read_env()
     bot = telegram.Bot(token=env.str("TG_TOKEN"))
@@ -29,7 +29,7 @@ def posting_bot():
 
 
 def main():
-    posting_bot()
+    post_image_tg_bot()
 
 
 if __name__ == "__main__":
