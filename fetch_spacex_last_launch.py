@@ -1,6 +1,5 @@
 import requests
 import argparse
-import sys
 from additional import save_image_to_path
 
 
@@ -20,15 +19,14 @@ def main():
     parser.add_argument("--id", help="Введите ID запуска, фото с которого Вы хотите сохранить", default="latest")
     args = parser.parse_args()
     image_urls = fetch_spacex_last_launch(args.id)
-    try:
-        if image_urls:
-            for image_number, image_url in enumerate(image_urls):
+    if image_urls:
+        for image_number, image_url in enumerate(image_urls):
+            try:
                 save_image_to_path(f"spacex_{str(image_number)}", image_url, "images/")
+            except requests.exceptions.HTTPError:
+                print("Такой ID полета не существует")
         else:
             print("Фотографии с последнего запуска отсутствуют")
-    except requests.exceptions.HTTPError:
-        print("Такой ID полета не существует")
-        sys.exit()
 
 
 if __name__ == "__main__":
